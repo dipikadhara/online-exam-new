@@ -1,0 +1,46 @@
+{% extends 'homepage\base.html' %}
+{% block content %}
+{% if error %}
+{{ error }}
+<br />
+<br />
+{% endif %}
+<form method="POST" action="{% url 'signup' %}">
+   {% csrf_token %}
+   <table align="enter">
+      <tr>
+         <td colspan="2">
+            <h1>Sign Up!</h1>
+            </br>
+         </td>
+      </tr>
+      <tr>
+         <td>Username :</td>
+         <td><input type="text" name="username" maxlength="15" class="textinput textInput form-control" required="" id="username"/></td>
+      </tr>
+      <tr>
+         <td>Password :</td>
+         <td> <input type="password" name="password1" maxlength="8" class="textinput textInput form-control" required="" id="password1"/></td>
+      </tr>
+      <tr>
+         <td>Confirm Password :</td>
+         <td><input type="password" name="password2" maxlength="8" class="textinput textInput form-control" required="" id="password2"/> </td>
+      </tr>
+      <tr>
+         <td>First Name :</td>
+         <td><input type="text" name="firstname" maxlength="20" class="textinput textInput form-control" required="" id="firstname"/></td>
+      </tr>
+      <tr>
+         <td>Last Name :</td>
+         <td>  <input type="text" name="lastname" maxlength="20" class="textinput textInput form-control" required="" id="lastname"/></td>
+      </tr>
+      <tr>
+         <td>Email ID : </td>
+         <td> <input type="email" name="email" maxlength="254" class="emailinput form-control" required="" id="email"/></td>
+      </tr>
+      <tr>
+         <td colspan="2"><input class="btn btn-primary" type="submit" value="Sign Up!" /></td>
+      </tr>
+   </table>
+</form>
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends 'homepage\base.html' %}
+{% block content %}
+{% if error %}
+{{ error }}
+<br />
+<br />
+{% endif %}
+<form method="POST" action="{% url 'loginuser' %}">
+   {% csrf_token %}
+   <table>
+      <tr>
+         <td colspan="2">
+            <h1>Login</h1>
+         </td>
+      </tr>
+      <tr>
+         <td> Username: </td>
+         <td> <input type="text" name="username" maxlength="15" class="textinput textInput form-control" required="" id="username"/> </td>
+      </tr>
+      <tr>
+         <td> Password: </td>
+         <td> <input type="password" name="password" maxlength="8" class="textinput textInput form-control" required="" id="password"/> </td>
+      </tr>
+      <tr>
+         <td colspan="2"> <input class="btn btn-primary" type="submit" value="Login" /> </td>
+      </tr>
+   </table>
+</form>
+{% endblock %}
